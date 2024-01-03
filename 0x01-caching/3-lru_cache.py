@@ -56,8 +56,12 @@ class LRUCache(BaseCaching):
         if key is None or item is None:
             return
         if len(self.track_record) < self.MAX_ITEMS:
-            self.add_key_to_track_record(key)
-            self.cache_data[key] = item
+            if key not in self.cache_data:
+                self.add_key_to_track_record(key)
+                self.cache_data[key] = item
+            else:
+                self.set_track_record_with_retrieval(key)
+                self.cache_data[key] = item
         else:
             if key not in self.cache_data:
                 self.set_track_record_with_replacement(key)
