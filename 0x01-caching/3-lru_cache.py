@@ -33,12 +33,12 @@ class LRUCache(BaseCaching):
         for key, item in self.track_record.items():
             if item == 0:
                 key_to_pop = key
+        for key, item in self.track_record.items():
+            if item > self.track_record[key_to_pop]:
+                self.track_record[key] -= 1
         self.track_record.pop(key_to_pop)
         self.cache_data.pop(key_to_pop)
         print(f"DISCARD: {key_to_pop}")
-        for key, item in self.track_record.items():
-            if item <= self.MAX_ITEMS - 1 and item != 0:
-                self.track_record[key] -= 1
         self.track_record[new_key] = self.MAX_ITEMS - 1
 
     def set_track_record_with_retrieval(self, old_key):
