@@ -8,6 +8,7 @@ a class Fifo cache that inherits from BaseCaching and is a caching system
 
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """A Cache that acts in the First in
     first out manner

@@ -11,7 +11,6 @@ from base_caching import BaseCaching
 class BasicCache(BaseCaching):
     """A basic Cache class
     """
-    
     def put(self, key, item):
         """stores data to the cache"""
         if key is None or item is None:
