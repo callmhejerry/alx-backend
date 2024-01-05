@@ -30,8 +30,14 @@ class MRUCache(BaseCaching):
         occurs
         """
         key_to_pop = None
+        highest_value_in_track_record = list(self.track_record.values())[0]
+        
+        for value in list(self.track_record.values()):
+            if value > highest_value_in_track_record:
+                highest_value_in_track_record = value
+
         for key, item in self.track_record.items():
-            if item == self.MAX_ITEMS - 1:
+            if item == highest_value_in_track_record:
                 key_to_pop = key
         self.track_record.pop(key_to_pop)
         self.cache_data.pop(key_to_pop)
