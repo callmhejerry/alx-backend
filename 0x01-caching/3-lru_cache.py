@@ -44,11 +44,12 @@ class LRUCache(BaseCaching):
     def set_track_record_with_retrieval(self, old_key):
         """update the track record data structure when a retrieval
         occurs
-        """
-        for key, item in self.track_record.items():
-            if item > self.track_record[old_key]:
-                self.track_record[key] -= 1
-        self.track_record[old_key] = self.MAX_ITEMS - 1
+        """        
+        if len(self.track_record) > 1:
+            for key, item in self.track_record.items():
+                if item > self.track_record[old_key]:
+                    self.track_record[key] -= 1
+            self.track_record[old_key] = self.MAX_ITEMS - 1
 
     def put(self, key, item):
         """Stores data into the cache
