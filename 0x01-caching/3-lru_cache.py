@@ -44,7 +44,7 @@ class LRUCache(BaseCaching):
     def set_track_record_with_retrieval(self, old_key):
         """update the track record data structure when a retrieval
         occurs
-        """        
+        """
         if len(self.track_record) > 1:
             highest_value_in_track_record = list(self.track_record.values())[0]
             for key, item in self.track_record.items():
