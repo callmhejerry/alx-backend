@@ -45,10 +45,11 @@ class MRUCache(BaseCaching):
         """update the track record data structure when a retrieval
         occurs
         """
-        # for key, item in self.track_record.items():
-        #     if item <= self.MAX_ITEMS - 1 and item != 0:
-        #         self.track_record[key] -= 1
-        self.track_record[old_key] = self.MAX_ITEMS - 1
+        highest_value_in_track_record = list(self.track_record.values())[0]
+        for key, item in self.track_record.items():
+            if item > highest_value_in_track_record:
+                highest_value_in_track_record = item
+        self.track_record[old_key] = highest_value_in_track_record
 
     def put(self, key, item):
         """Stores data into the cache
