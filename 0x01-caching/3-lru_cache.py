@@ -46,10 +46,14 @@ class LRUCache(BaseCaching):
         occurs
         """        
         if len(self.track_record) > 1:
+            highest_value_in_track_record = list(self.track_record.values())[0]
             for key, item in self.track_record.items():
+                if item > highest_value_in_track_record:
+                    highest_value_in_track_record = item
                 if item > self.track_record[old_key]:
                     self.track_record[key] -= 1
-            self.track_record[old_key] = self.MAX_ITEMS - 1
+            # self.track_record[old_key] = self.MAX_ITEMS - 1
+            self.track_record[old_key] = highest_value_in_track_record
 
     def put(self, key, item):
         """Stores data into the cache
