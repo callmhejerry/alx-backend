@@ -31,7 +31,7 @@ class MRUCache(BaseCaching):
         """
         key_to_pop = None
         highest_value_in_track_record = list(self.track_record.values())[0]
-        
+
         for value in list(self.track_record.values()):
             if value > highest_value_in_track_record:
                 highest_value_in_track_record = value
