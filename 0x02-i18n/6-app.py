@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Babel Setup"""
+"""Babel Setup File"""
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 from typing import Union
@@ -14,7 +14,7 @@ users = {
 
 
 class Config(object):
-    """Babel Configuration"""
+    """Babel Configuration class"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_TIMEZONE = 'UTC'
     BABEL_DEFAULT_LOCALE = 'en'
@@ -27,7 +27,8 @@ babel = Babel(app)
 
 @app.before_request
 def before_request(login_as: int = None):
-    """ Request Function
+    """Request Function
+    the function to be ran before any request
     """
     user: dict = get_user()
     g.user = user
@@ -35,6 +36,8 @@ def before_request(login_as: int = None):
 
 def get_user() -> Union[dict, None]:
     """ Get the user
+    returns
+        user
     """
     login_user = request.args.get('login_as', None)
 
@@ -49,7 +52,8 @@ def get_user() -> Union[dict, None]:
 
 @babel.localeselector
 def get_locale():
-    """ Locale language
+    """Locale language
+    returns the localized language
     """
     locale = request.args.get('locale', None)
 
@@ -65,7 +69,9 @@ def get_locale():
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def hello_world():
-    """ Greeting
+    """Greeting
+    returns
+        Hello world
     """
     return render_template('6-index.html')
 

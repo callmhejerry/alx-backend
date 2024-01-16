@@ -30,6 +30,8 @@ def get_locale():
 @app.route('/', strict_slashes=False)
 def hello_world():
     """Greetings
+    returns
+        Hello world
     """
     return render_template('3-index.html')
 
