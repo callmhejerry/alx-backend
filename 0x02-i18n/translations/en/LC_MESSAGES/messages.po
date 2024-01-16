@@ -37,4 +37,3 @@ msgstr ""
 #: templates/7-index.html:14
 msgid "not_logged_in"
 msgstr ""
-
