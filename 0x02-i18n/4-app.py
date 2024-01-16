@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Babel Setup file
+"""Babel Setup file
 localizing different languages
 """
 from flask import Flask, render_template, request
