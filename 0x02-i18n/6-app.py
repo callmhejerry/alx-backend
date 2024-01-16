@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Babel Setup File"""
+"""A simple flask app
+"""
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 from typing import Union

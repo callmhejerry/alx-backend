@@ -9,7 +9,8 @@ class Config(object):
     """Configuration Object
 
     Returns:
-        type: description"""
+        type: description
+    """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
